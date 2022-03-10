@@ -167,25 +167,26 @@ const showPosts = (posts) => {
 
 const displayLikedPosts = () => {
 
-  const productsContainer = document.getElementById('liked');
-  productsContainer.innerHTML = "";
+  const productsContainer2 = document.getElementById('liked');
+  productsContainer2.innerHTML = "";
   const likedPosts = getLikedPosts();
   console.log(likedPosts)
   likedPosts.forEach((post) => {
     const div = createPost(post);
     // console.log(post);
     // document.getElementById("likeds").appendChild(div);
-    productsContainer.appendChild(div);
+    productsContainer2.appendChild(div);
   });
 };
 
 const displayReportedPosts = () => {
-  const productsContainer = document.getElementById('posts');
-  productsContainer.innerHTML = "";
+  const productsContainer3 = document.getElementById('reported');
+  productsContainer3.innerHTML = "";
   const reportedPosts = getReportedPosts();
   reportedPosts.forEach((post) => {
     const div = createPost(post);
-    document.getElementById("reported").appendChild(div);
+    // document.getElementById("reported").appendChild(div);
+    productsContainer3.appendChild(div);
   });
 };
 
