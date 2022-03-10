@@ -1,3 +1,5 @@
+// empty array
+
 let posts=[ ];
 
 const likedPostsId = [];
