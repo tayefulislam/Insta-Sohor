@@ -1,15 +1,21 @@
 // empty array
 
 let posts = [];
+console.log(posts)
 
 const likedPostsId = [];
 console.log(likedPostsId)
 const reportedPostsId = [];
 
+
+
+
 const getLikedPosts = () => {
+
   console.log(posts.filter((post) => likedPostsId.includes(post.id)))
   return posts.filter((post) => likedPostsId.includes(post.id));
 };
+
 
 const getReportedPosts = () => {
   return posts.filter((post) => reportedPostsId.includes(post.id));
@@ -28,22 +34,28 @@ const addToLiked = (id) => {
 const reportPost = (id) => {
   reportedPostsId.push(id);
   const remainingPosts = posts.filter((post) => !reportedPostsId.includes(post.id));
+  console.log(remainingPosts)
   showPosts(remainingPosts);
 };
 
 const displayContent = (text) => {
+  console.log(text)
   return text.length < 30 ? text : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
 };
 
 const switchTab = (id) => {
-  if (id === "posts") {
+  console.log(id)
+  if (id === 'posts') {
     document.getElementById("posts").style.display = "grid";
     document.getElementById("liked").style.display = "none";
     document.getElementById("reported").style.display = "none";
+
+
   }
 
-  else if (id === "liked") {
+  else if (id === 'liked') {
     document.getElementById("liked").style.display = "block";
+
     document.getElementById("posts").style.display = "none";
     document.getElementById("reported").style.display = "none";
 
@@ -60,6 +72,7 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
+  console.log(post)
   const image = post.image;
   const div = document.createElement("article");
   div.classList.add("post");
@@ -94,6 +107,7 @@ const createPost = (post) => {
               <div class="post__footer">
                 <div class="post__buttons">
                   <button class="post__button" onclick="addToLiked(${post.id})">
+
                   <i class="fa-solid fa-heart ${isLiked(post.id) && "text-danger"}"></i>
                     
                   </button>
@@ -140,32 +154,41 @@ const createPost = (post) => {
 };
 
 const showPosts = (posts) => {
-  const productsContainer = document.getElementById("posts");
+  console.log(posts)
+  const productsContainer = document.getElementById('posts');
   productsContainer.innerHTML = "";
 
   posts.forEach((post) => {
     const div = createPost(post);
-    
+
     productsContainer.appendChild(div);
   });
 };
 
 const displayLikedPosts = () => {
+
+  const productsContainer = document.getElementById('liked');
+  productsContainer.innerHTML = "";
   const likedPosts = getLikedPosts();
+  console.log(likedPosts)
   likedPosts.forEach((post) => {
     const div = createPost(post);
-    console.log(post);
-    document.getElementById("liked").appendChild(div);
+    // console.log(post);
+    // document.getElementById("likeds").appendChild(div);
+    productsContainer.appendChild(div);
   });
 };
 
 const displayReportedPosts = () => {
+  const productsContainer = document.getElementById('posts');
+  productsContainer.innerHTML = "";
   const reportedPosts = getReportedPosts();
-  posts.forEach((post) => {
+  reportedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("reported").appendChild(div);
   });
 };
+
 
 const loadPosts = async () => {
   let data = await fetch('../data/posts.json');
