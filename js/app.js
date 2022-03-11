@@ -64,6 +64,7 @@ const switchTab = (id) => {
     //hide like and repost head title
     showHide('like-title', 'none');
     showHide('report-title', 'none');
+    showHide('question', 'block');
 
 
 
@@ -79,6 +80,7 @@ const switchTab = (id) => {
     // show like head tite and hide report title 
     showHide('like-title', 'block');
     showHide('report-title', 'none');
+    showHide('question', 'none');
     displayLikedPosts();
 
 
@@ -93,6 +95,7 @@ const switchTab = (id) => {
     //hide like  title and show report title
     showHide('like-title', 'none');
     showHide('report-title', 'block');
+    showHide('question', 'none');
     displayReportedPosts();
 
 
@@ -224,6 +227,8 @@ const loadPosts = async () => {
   let data = await fetch('../data/posts.json');
   posts = await data.json();
   showPosts(posts);
+
+  showHide('question', 'block');
 
 }
 

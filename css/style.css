@@ -253,6 +253,10 @@ img {
   display: none;
 }
 
+#question{
+  display: none;
+}
+
 @media only screen and (max-width: 992px) {
   #posts {
     grid-template-columns: repeat(2, 1fr);
