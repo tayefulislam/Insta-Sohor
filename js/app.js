@@ -7,15 +7,20 @@ const likedPostsId = [];
 // console.log(likedPostsId)
 const reportedPostsId = [];
 
+// extra fuction 
+
+const showHide = (id, idName) => {
+
+  document.getElementById(id).style.display = idName;
+
+}
 
 
 
 const getLikedPosts = () => {
-
-  console.log(posts.filter((post) => likedPostsId.includes(post.id)))
+  // console.log(posts.filter((post) => likedPostsId.includes(post.id)))
   return posts.filter((post) => likedPostsId.includes(post.id));
 };
-
 
 const getReportedPosts = () => {
   return posts.filter((post) => reportedPostsId.includes(post.id));
@@ -26,7 +31,7 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
-  console.log(id)
+  // console.log(id)
   likedPostsId.push(id);
   showPosts(posts);
 };
@@ -38,12 +43,12 @@ const reportPost = (id) => {
   showPosts(remainingPosts);
 };
 
-const lekePost = (id) => {
-  reportedPostsId.push(id);
-  const remainingPosts = posts.filter((post) => !reportedPostsId.includes(post.id));
-  console.log(remainingPosts)
-  showPosts(remainingPosts);
-};
+// const likePost = (id) => {
+//   reportedPostsId.push(id);
+//   const remainingPosts = posts.filter((post) => !reportedPostsId.includes(post.id));
+//   console.log(remainingPosts)
+//   showPosts(remainingPosts);
+// };
 
 
 
@@ -55,12 +60,14 @@ const displayContent = (text) => {
 };
 
 const switchTab = (id) => {
-  console.log(id)
+
   if (id === 'posts') {
     document.getElementById("posts").style.display = "grid";
     document.getElementById("liked").style.display = "none";
     document.getElementById("reported").style.display = "none";
 
+    showHide('like-title', 'none')
+    showHide('report-title', 'none')
 
 
 
@@ -71,8 +78,20 @@ const switchTab = (id) => {
 
     document.getElementById("posts").style.display = "none";
     document.getElementById("reported").style.display = "none";
+    console.log(likedPostsId.length)
 
-    displayLikedPosts();
+    if (!likedPostsId.length) {
+      showHide('like-title', 'block')
+      showHide('report-title', 'none')
+
+    } else {
+
+      showHide('like-title', 'none')
+      showHide('report-title', 'none')
+
+      displayLikedPosts();
+
+    }
 
   }
 
@@ -81,7 +100,19 @@ const switchTab = (id) => {
     document.getElementById("posts").style.display = "none";
     document.getElementById("liked").style.display = "none";
 
-    displayReportedPosts();
+
+    if (!reportedPostsId.length) {
+      showHide('like-title', 'none')
+      showHide('report-title', 'block')
+    }
+
+    else {
+
+      showHide('like-title', 'none')
+      showHide('report-title', 'none')
+      displayReportedPosts();
+    }
+
   }
 };
 
@@ -169,13 +200,10 @@ const createPost = (post) => {
 
 
 const showPosts = (posts) => {
-  // console.log(posts)
+
   const productsContainer = document.getElementById('posts');
   productsContainer.innerHTML = "";
-
   posts.forEach((post) => {
-
-    console.log(post.id)
     const div = createPost(post);
     productsContainer.appendChild(div);
 
@@ -185,37 +213,36 @@ const showPosts = (posts) => {
 const displayLikedPosts = () => {
 
   const productsContainer = document.getElementById('liked');
+  productsContainer.innerHTML = ``;
 
-  productsContainer.innerHTML = ``
-
-  productsContainer.innerHTML = "";
   const likedPosts = getLikedPosts();
-  console.log(likedPosts)
   likedPosts.forEach((post) => {
     const div = createPost(post);
-    // console.log(post);
-    // document.getElementById("likeds").appendChild(div);
     productsContainer.appendChild(div);
   });
+
+
+
 };
 
 const displayReportedPosts = () => {
-  const productsContainer = document.getElementById('reported');
 
+
+  const productsContainer = document.getElementById('reported');
   productsContainer.innerHTML = "";
+
   const reportedPosts = getReportedPosts();
   reportedPosts.forEach((post) => {
     const div = createPost(post);
-    // document.getElementById("reported").appendChild(div);
     productsContainer.appendChild(div);
   });
 };
-
 
 const loadPosts = async () => {
   let data = await fetch('../data/posts.json');
   posts = await data.json();
   showPosts(posts);
+
 }
 
 loadPosts();

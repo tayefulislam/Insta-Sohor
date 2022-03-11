@@ -245,6 +245,14 @@ img {
   display: none;
 }
 
+#like-title{
+  display: none;
+}
+
+#report-title{
+  display: none;
+}
+
 @media only screen and (max-width: 992px) {
   #posts {
     grid-template-columns: repeat(2, 1fr);
