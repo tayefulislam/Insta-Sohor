@@ -58,7 +58,82 @@
         <div id="reported">
 
         </div>
+
+        <section class="mt-5">
+
+            <div>
+                <h3>What is difference between localstorage and sessionstorage..?</h3>
+
+                <p>localStorage এবং sessionStorage প্রায় একই। মুল পার্থক হচ্ছে local Storage এ যে browse করার টাইমের
+                    data
+                    গুলো window/tab close করলেও থেকে কিন্তু session Storage এর৷ data গুলো Delete হয়ে যায়।
+
+                    Browser এ প্রতি WINDOW / ট্যাব এর জন্য একটা ইউনিক পেইজ সেশন ক্রিয়েট করে, যদি ট্যাব ক্লোজ করা
+                    তাহলে
+
+                    sessionStorage
+                    থেকে ডাটা গুলো ডিলিট হয়ে যায় কিন্তু লোকাল এ ডাটা গুলো থেকে যায়।localStorage এ ১০ মেগাবাইট পর্যন্ত
+                    ডাটা
+                    সেভ পযন্ত সেভ করতে পারে। আর sessionStorage এ ৫ মেগাবাইট পযন্ত ডাটা সেভ করতে পারে।</p>
+            </div>
+            <div>
+
+                <h3>How does JavaScript Work?</h3>
+                <p>
+
+
+                    জাভা স্ক্রিপ্ট (ইন্টারপ্রিটেড ল্যাঙ্গুয়েজ) একটা ক্লায়েন্ট সাইড স্ক্রিপ্টিং ল্যাঙ্গুয়েজ্ ।
+                    জাভাস্ক্রিপ্ট কাজ করে জাভাস্ক্রিপ্ট ইঞ্জিন (ভি-৮ ইঞ্জিন-ক্রোম) এর মাধ্যমে।JavaScript interpreted
+                    language হওয়ার কারণে লাইন বাই লাইন execute হয়.
+                    <br>
+
+                    JavaScript code রান হওয়ার ৪ টি step -
+                    <br>
+
+                    ১। Parser- এর কাজ হচ্ছে কোড-কে লাইন বাই লাইন রান করা। কোন systacice error আছে কিনা চেক করে, যদি কোন
+                    error পায় তাহলে error throw করে কোডকে করা বন্ধ করে দেয়।
+
+                    <br>
+
+                    ২। AST (Abstract Syntax Tree) এর কাজ হচ্ছে কোডকে parser করার পর এটা একটা data structure তৈরী করে।
+
+                    <br>
+
+                    ৩। Conversion to Machine code - Data structure তৈরি করার পর এটার কাজ হচ্ছে কোড টা কে machine code (0
+                    and 1 / byte code) রুপান্তর করা।
+
+                    <br>
+
+                    4. Machine code - JS Code Machine Code এ convert হওয়ার পর কোড system এ সেন্ড করে execute করার জন্য
+                    এবং result output হিসেবে দেওয়ার জন্য।
+
+
+
+                </p>
+
+
+            </div>
+
+        </section>
     </main>
+
+
+    <!-- <section>
+
+        <div>
+            <h1>What is difference between localstorage and sessionstorage..?</h1>
+
+            <p>localStorage এবং sessionStorage প্রায় একই। মুল পার্থক হচ্ছে local Storage এ যে browse করার টাইমের data
+                গুলো window/tab close করলেও থেকে কিন্তু session Storage এর৷ data গুলো Delete হয়ে যায়।
+
+                sessionStorage এ প্রতি লিংক / ট্যাব এর জন্য একটা ইউনিক পেইজ সেশন ক্রিয়েট করে, যদি ট্যাব ক্লোজ করা তাহলে
+                sessionStorage থেকে ডাটা গুলো ডিলিট হয়ে যায় কিন্তু localstorage এ ডাটা গুলো থেকে যায়।sessionStorage এ
+                প্রতি লিংক / ট্যাব এর জন্য একটা ইউনিক পেইজ সেশন ক্রিয়েট করে, যদি ট্যাব ক্লোজ করা তাহলে sessionStorage
+                থেকে ডাটা গুলো ডিলিট হয়ে যায় কিন্তু লোকাল এ ডাটা গুলো থেকে যায়।localStorage এ ১০ মেগাবাইট পর্যন্ত ডাটা
+                সেভ পযন্ত সেভ করতে পারে। আর sessionStorage এ ৫ মেগাবাইট পযন্ত ডাটা সেভ করতে পারে।</p>
+        </div>
+
+    </section> -->
     <footer></footer>
 
     <!-- add javascript  file  -->
