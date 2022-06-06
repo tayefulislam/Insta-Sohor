@@ -8,7 +8,7 @@ const likedPostsId = [];
 const reportedPostsId = [];
 
 // extra fuction 
-// hide or show header title
+// hide or show header title 
 const showHide = (id, idName) => {
 
   document.getElementById(id).style.display = idName;
